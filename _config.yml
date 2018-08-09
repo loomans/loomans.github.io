@@ -2,4 +2,5 @@ title: loomans.org
 markdown: kramdown
 logo: /images/fire.jpg
 description: loomans.org
+theme: jekyll-theme-minimal
 

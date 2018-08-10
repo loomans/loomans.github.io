@@ -7,9 +7,8 @@
 
     <title>loomans.org</title>
 
-    <style>
-      @font-face{font-family:'Noto Sans';font-weight:400;font-style:normal;src:url(assets/fonts/Noto-Sans-regular/Noto-Sans-regular.eot);src:url(assets/fonts/Noto-Sans-regular/Noto-Sans-regular.eot?#iefix) format("embedded-opentype"),local("Noto Sans"),local("Noto-Sans-regular"),url(assets/fonts/Noto-Sans-regular/Noto-Sans-regular.woff2) format("woff2"),url(assets/fonts/Noto-Sans-regular/Noto-Sans-regular.woff) format("woff"),url(assets/fonts/Noto-Sans-regular/Noto-Sans-regular.ttf) format("truetype"),url(assets/fonts/Noto-Sans-regular/Noto-Sans-regular.svg#NotoSans) format("svg")}@font-face{font-family:'Noto Sans';font-weight:700;font-style:normal;src:url(assets/fonts/Noto-Sans-700/Noto-Sans-700.eot);src:url(assets/fonts/Noto-Sans-700/Noto-Sans-700.eot?#iefix) format("embedded-opentype"),local("Noto Sans Bold"),local("Noto-Sans-700"),url(assets/fonts/Noto-Sans-700/Noto-Sans-700.woff2) format("woff2"),url(assets/fonts/Noto-Sans-700/Noto-Sans-700.woff) format("woff"),url(assets/fonts/Noto-Sans-700/Noto-Sans-700.ttf) format("truetype"),url(assets/fonts/Noto-Sans-700/Noto-Sans-700.svg#NotoSans) format("svg")}@font-face{font-family:'Noto Sans';font-weight:400;font-style:italic;src:url(assets/fonts/Noto-Sans-italic/Noto-Sans-italic.eot);src:url(assets/fonts/Noto-Sans-italic/Noto-Sans-italic.eot?#iefix) format("embedded-opentype"),local("Noto Sans Italic"),local("Noto-Sans-italic"),url(assets/fonts/Noto-Sans-italic/Noto-Sans-italic.woff2) format("woff2"),url(assets/fonts/Noto-Sans-italic/Noto-Sans-italic.woff) format("woff"),url(assets/fonts/Noto-Sans-italic/Noto-Sans-italic.ttf) format("truetype"),url(assets/fonts/Noto-Sans-italic/Noto-Sans-italic.svg#NotoSans) format("svg")}@font-face{font-family:'Noto Sans';font-weight:700;font-style:italic;src:url(assets/fonts/Noto-Sans-700italic/Noto-Sans-700italic.eot);src:url(assets/fonts/Noto-Sans-700italic/Noto-Sans-700italic.eot?#iefix) format("embedded-opentype"),local("Noto Sans Bold Italic"),local("Noto-Sans-700italic"),url(assets/fonts/Noto-Sans-700italic/Noto-Sans-700italic.woff2) format("woff2"),url(assets/fonts/Noto-Sans-700italic/Noto-Sans-700italic.woff) format("woff"),url(assets/fonts/Noto-Sans-700italic/Noto-Sans-700italic.ttf) format("truetype"),url(assets/fonts/Noto-Sans-700italic/Noto-Sans-700italic.svg#NotoSans) format("svg")}body{background-color:#000;padding:50px;font:14px/1.5 "Noto Sans","Helvetica Neue",Helvetica,Arial,sans-serif;color:#727272;font-weight:400}h1{color:#eee;margin:0 0 20px;text-shadow:2px 2px 4px #000;line-height:1.1;font-size:28px}.wrapper{width:860px;margin:0 auto}.fire{background:url(/assets/images/fire.jpg) no-repeat center center fixed;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover}
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
+
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -27,5 +26,62 @@
       gtag('js', new Date());
       gtag('config', 'UA-2175874-3');
     </script>
+    <script>
+      window.onload = function loadStuff() {
+      var win, doc, img, header, enhancedClass;
+      
+      // Quit early if older browser (e.g. IE 8).
+      if (!('addEventListener' in window)) {
+        return;
+      }
+      
+      win = window;
+      doc = win.document;
+      img = new Image();
+      header = doc.querySelector('.fire');
+      enhancedClass = 'fire-enhanced';
+
+      // Rather convoluted, but parses out the first mention of a background
+      // image url for the enhanced header, even if the style is not applied.
+      var bigSrc = (function () {
+        // Find all of the CssRule objects inside the inline stylesheet 
+        var styles = doc.querySelector('style').sheet.cssRules;
+        // Fetch the background-image declaration...
+        var bgDecl = (function () {
+          // ...via a self-executing function, where a loop is run
+          var bgStyle, i, l = styles.length;
+          for (i=0; i<l; i++) {
+            // ...checking if the rule is the one targeting the
+            // enhanced header.
+            if (styles[i].selectorText &&
+                styles[i].selectorText == '.'+enhancedClass) {
+              // If so, set bgDecl to the entire background-image
+              // value of that rule
+              bgStyle = styles[i].style.backgroundImage;
+              // ...and break the loop.
+              break; 
+            }
+          }
+          // ...and return that text.
+          return bgStyle;
+        }());
+        // Finally, return a match for the URL inside the background-image
+        // by using a fancy regex I Googled up, as long as the bgDecl 
+        // variable is assigned at all.         
+        return bgDecl && bgDecl.match(/(?:\(['|"]?)(.*?)(?:['|"]?\))/)[1];
+      }());
+
+      // Assign an onLoad handler to the dummy image *before* assigning the src
+      img.onload = function () {
+        header.className += ' ' +enhancedClass;
+      };
+      // Finally, trigger the whole preloading chain by giving the dummy
+      // image its source.
+      if (bigSrc) {
+        img.src = bigSrc;
+      }
+    };
+    </script>
   </body>
 </html>
+

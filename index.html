@@ -25,12 +25,38 @@
       }
 
       .fire {
-        background:url("assets/images/fire.jpg") no-repeat center center fixed;
+        background:url("assets/images/fire_tiny.jpg") no-repeat center center fixed;
         -webkit-background-size:cover;
         -moz-background-size:cover;
         -o-background-size:cover;
         background-size:cover;
+        filter:blur(20px);
+        animation: hd-quality 1s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
       }
+
+      .fire::after {
+        -x-animation: low-quality 1s;
+        -x-animation-delay: 1s;
+      }
+
+      @keyframes
+        low-quality {  0% {
+            background-image: url(assets/images/fire_tiny.jpg);
+          }
+        }
+
+      @keyframes
+        hd-quality { 0% {
+            background-image: url(assets/images/fire.jpg);
+            filter: blur(20px);
+          }
+          100% {
+            background-image: url(assets/images/fire.jpg);
+            filter: blur(0px);
+          }
+        }
     </style>
 
     <!--[if lt IE 9]>

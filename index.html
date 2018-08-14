@@ -7,15 +7,38 @@
 
     <title>loomans.org</title>
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+      body {
+        background-color:#000;
+        padding:50px;
+        font:14px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color:#727272;
+        font-weight:400;
+      }
+
+      h1 {
+        color:#eee;
+        margin:0 0 20px;
+        text-shadow:2px 2px 4px #000;
+        line-height:1.1;
+        font-size:28px;
+      }
+
+      .fire {
+        background:url("assets/images/fire.jpg") no-repeat center center fixed;
+        -webkit-background-size:cover;
+        -moz-background-size:cover;
+        -o-background-size:cover;
+        background-size:cover;
+      }
+    </style>
+
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
   </head>
   <body class="fire">
     <h1>loomans.org</h1>
-
-    <script src="assets/js/scale.fix.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2175874-3"></script>
@@ -24,6 +47,34 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'UA-2175874-3');
+    </script>
+    <script>
+      (function(document) {
+        var metas = document.getElementsByTagName('meta'),
+          changeViewportContent = function(content) {
+            for (var i = 0; i < metas.length; i++) {
+              if (metas[i].name == "viewport") {
+                metas[i].content = content;
+              }
+            }
+          },
+          initialize = function() {
+            changeViewportContent("width=device-width, minimum-scale=1.0, maximum-scale=1.0");
+          },
+          gestureStart = function() {
+            changeViewportContent("width=device-width, minimum-scale=0.25, maximum-scale=1.6");
+          },
+          gestureEnd = function() {
+            initialize();
+          };
+
+        if (navigator.userAgent.match(/iPhone/i)) {
+          initialize();
+
+          document.addEventListener("touchstart", gestureStart, false);
+          document.addEventListener("touchend", gestureEnd, false);
+        }
+      })(document);
     </script>
   </body>
 </html>

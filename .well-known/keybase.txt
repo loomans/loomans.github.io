@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/rloomans
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://loomans.org
+  * I am rloomans (https://keybase.io/rloomans) on keybase.
+  * I have a public key ASB_PYjG25A-314uKlel3Juqc-0ReqCaTQDSLokhY6TiEwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120d6dff672e2b39810d9d00fb336b6a5484c45c792cd116760ba87565244f4c91d0a",
+      "host": "keybase.io",
+      "kid": "01207f3d88c6db903edf5e2e2a57a5dc9baa73ed117aa09a4d00d22e892163a4e2130a",
+      "uid": "f16191c385d6678d5b1f5ce822917819",
+      "username": "rloomans"
+    },
+    "merkle_root": {
+      "ctime": 1551878833,
+      "hash": "db485ecddb31f08d79bf68cbb4395d2df506f649f692a8e62c8c70af2ef1ab85ec240aa83dccb66ce60608b3119befcda4ca8c88bdd1e9d525ead718a70a73d0",
+      "hash_meta": "8ab7884d54f18abfd1692de8dcc9aa6e0035cad4618e111b0f5eeb88eb43f135",
+      "seqno": 4887293
+    },
+    "service": {
+      "entropy": "qj/inR2VGhifyIKOmORti8tb",
+      "hostname": "loomans.org",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "3.0.0"
+  },
+  "ctime": 1551878850,
+  "expire_in": 504576000,
+  "prev": "6d1230f107acb74168e9cbb23ff88bae599d811b642afa687bcf4bf03665c605",
+  "seqno": 71,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgfz2IxtuQPt9eLipXpdybqnPtEXqgmk0A0i6JIWOk4hMKp3BheWxvYWTESpcCR8QgbRIw8Qest0Fo6cuyP/iLrlmdgRtkKvpoe89L8DZlxgXEICPSkrHzcYwKK2VABrknUlNG0IEAucw+2xbWFekzyP6DAgHCo3NpZ8RAQmGdc87Q7kEllzNHVARXpq4HcQnIEI6BmMaIunEr5UBoNv5tiSr1sxwgZNpI06E+8Cbb32ee4r/THq5/hUx9A6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIM+Rtzy9TlZFd+glH1pa/6uijd/8Rm0MQEIMzCOKJ6MLo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/rloomans
+
+==================================================================

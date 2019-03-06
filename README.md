@@ -1,3 +1,3 @@
 # loomans.org
-![loomans.org](assets/images/fire.jpg)
+![loomans.org](assets/images/fire_25.jpg)
 

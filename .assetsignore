@@ -1,0 +1,19 @@
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
+
+.gitignore
+.git/
+.github/
+
+CNAME
+README.md
+wrangler.jsonc
